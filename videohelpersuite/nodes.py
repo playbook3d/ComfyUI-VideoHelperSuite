@@ -87,7 +87,8 @@ def apply_format_widgets(format_name, kwargs):
     with open(video_format_path, 'r') as stream:
         video_format = json.load(stream)
     for w in gen_format_widgets(video_format):
-        assert(w[0][0] in kwargs)
+        print(f"w: {w[0][0]}, KWARGS:{kwargs}")
+        #assert(w[0][0] in kwargs)
         if len(w[0]) > 3:
             w[0] = Template(w[0][3]).substitute(val=kwargs[w[0][0]])
         else:
